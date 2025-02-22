@@ -6,7 +6,7 @@ import { addComponent } from "./addComponent";
 const program = new Command();
 
 program
-  .name("fissionui")
+  .name("matomic")
   .version("1.0.0")
   .description("CLI for adding React components");
 

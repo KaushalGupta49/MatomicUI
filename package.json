@@ -1,18 +1,18 @@
 {
-  "name": "fissionui-cli",
-  "version": "1.0.0",
+  "name": "matomic",
+  "version": "1.0.1",
   "description": "",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "fissionui": "./dist/fissionui.cjs"
+    "matomic": "./dist/matomic.cjs"
   },
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "rollup -c",
-    "start": "node dist/fissionui.js"
+    "start": "node dist/matomic.js"
   },
   "keywords": [],
   "author": "",
