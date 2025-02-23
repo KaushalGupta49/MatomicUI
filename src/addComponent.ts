@@ -48,7 +48,9 @@ export async function addComponent(name: string, option: fileType) {
           if (err) {
             console.error("Error writing to file:", err);
           } else {
-            console.log(chalk.green(`Component ${name} created successfully...`));
+            console.log(
+              chalk.green(`Component ${name} created successfully...`)
+            );
           }
         });
       });
