@@ -25,6 +25,7 @@ jobs:
           destination: node-build
 
   publish:
+    executor: node/default
     steps:
       - checkout
       - run:
