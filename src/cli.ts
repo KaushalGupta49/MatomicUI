@@ -14,7 +14,9 @@ program
   .description("Add a new React component in Project")
   .option("--type <type>", "defines to download jsx or tsx file", "js")
   .action(async (componentName, options) => {
-    console.log(chalk.blue(`📥 Downloading ${componentName} as ${options.type}...`));
+    console.log(
+      chalk.blue(`📥 Downloading ${componentName} as ${options.type}...`)
+    );
     await addComponent(componentName, options.type);
   });
 
