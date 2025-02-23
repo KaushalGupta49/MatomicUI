@@ -6,8 +6,8 @@ import terser from "@rollup/plugin-terser";
 export default {
   input: "src/cli.ts",
   output: {
-    file: "dist/matomic.cjs",
-    format: "cjs",
+    file: "dist/matomic.mjs",
+    format: "esm",
     banner: "#!/usr/bin/env node",
   },
   plugins: [
@@ -18,5 +18,5 @@ export default {
     }),
     terser(),
   ],
-  external: ["fs", "path", "https"],
+  external: ["commander", "chalk", "fs", "path", "https"],
 };

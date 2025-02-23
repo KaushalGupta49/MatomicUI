@@ -31,7 +31,8 @@ export async function addComponent(name: string, option: fileType) {
     fs.mkdirSync(componentsDir);
   }
 
-  const componentPath = path.join(componentsDir, `${name}.tsx`);
+  const extension = option === fileType.js ? "jsx" : "tsx";
+  const componentPath = path.join(componentsDir, `${name}.${extension}`);
 
   https
     .get(componentURL, (response) => {
@@ -47,7 +48,7 @@ export async function addComponent(name: string, option: fileType) {
           if (err) {
             console.error("Error writing to file:", err);
           } else {
-            console.log("Data written to file successfully.");
+            console.log(chalk.green(`Component ${name} created successfully...`));
           }
         });
       });
