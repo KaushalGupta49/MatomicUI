@@ -1,5 +1,4 @@
 import { Command } from "commander";
-import inquirer from "inquirer";
 import chalk from "chalk";
 import { addComponent } from "./addComponent";
 
@@ -12,10 +11,11 @@ program
 
 program
   .command("add <componentName>")
-  .description("Add a new React component")
-  .action(async (componentName) => {
-    console.log(chalk.blue(`📥 Downloading ${componentName}...`));
-    await addComponent(componentName);
+  .description("Add a new React component in Project")
+  .option("--type <type>", "defines to download jsx or tsx file", "js")
+  .action(async (componentName, options) => {
+    console.log(chalk.blue(`📥 Downloading ${componentName} as ${options.type}...`));
+    await addComponent(componentName, options.type);
   });
 
 program.parse(process.argv);

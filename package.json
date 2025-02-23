@@ -19,8 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.4.1",
-    "commander": "^13.1.0",
-    "inquirer": "^12.4.2"
+    "commander": "^13.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",
