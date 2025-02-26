@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import chalk from "chalk";
-import { addComponent } from "./addComponent";
+import { addComponent } from "./lib/addComponent";
 
 const program = new Command();
 

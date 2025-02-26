@@ -4,7 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import terser from "@rollup/plugin-terser";
 
 export default {
-  input: "src/cli.ts",
+  input: "cli/cli.ts",
   output: {
     file: "dist/matomic.mjs",
     format: "esm",
@@ -14,7 +14,7 @@ export default {
     resolve(),
     commonjs(),
     typescript({
-      exclude: ["templates/**/*"],
+      exclude: ["src/**/*", "templates/**/*"],
     }),
     terser(),
   ],

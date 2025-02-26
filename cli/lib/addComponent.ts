@@ -28,7 +28,7 @@ export async function addComponent(name: string, option: fileType) {
 
   const componentsDir = path.resolve(process.cwd(), "src/components");
   if (!fs.existsSync(componentsDir)) {
-    fs.mkdirSync(componentsDir);
+    fs.mkdirSync(componentsDir, { recursive: true });
   }
 
   const extension = option === fileType.js ? "jsx" : "tsx";
