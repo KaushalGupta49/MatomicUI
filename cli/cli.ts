@@ -14,6 +14,11 @@ program
   .description("Add a new React component in Project")
   .option("--type <type>", "defines to download jsx or tsx file", "js")
   .action(async (componentName, options) => {
+    const validTypes = ["js", "ts"];
+    if (!validTypes.includes(options.type)) {
+      console.error(chalk.red(`❌ Invalid type: ${options.type}. Please use 'js' or 'ts'.`));
+      process.exit(1);
+    }
     console.log(
       chalk.blue(`📥 Downloading ${componentName} as ${options.type}...`)
     );

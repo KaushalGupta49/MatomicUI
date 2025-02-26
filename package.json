@@ -12,9 +12,29 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "npm run build",
-    "postpublish": "npm run clean"
+    "release": "release-it"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "🔖 release: v${version} – see CHANGELOG.md",
+      "tagName": "v${version}",
+      "requireCleanWorkingDir": true,
+      "requireUpstream": true,
+      "addUntrackedFiles": true,
+      "push": true,
+      "pushRepo": "origin",
+      "tagAnnotation": "🔖 Release v${version}",
+      "changelog": "npx auto-changelog --stdout --commit-limit false --unreleased",
+      "requireBranch": "main"
+    },
+    "npm": {
+      "publish": true,
+      "tag": "latest"
+    },
+    "hooks": {
+      "after:bump": "npm run build",
+      "after:release": "echo '🚀 Release successful!'"
+    }
   },
   "keywords": [],
   "author": "",
@@ -29,6 +49,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.2",
     "@types/node": "^22.13.5",
+    "release-it": "^17.11.0",
     "rollup": "^4.34.8",
     "typescript": "^5.7.3"
   }
