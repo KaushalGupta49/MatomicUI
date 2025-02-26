@@ -1,43 +1,48 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:node:.
 version: 2.1
+
 orbs:
   node: circleci/node@5
+
+executors:
+  node-executor:
+    docker:
+      - image: cimg/node:20
+
 jobs:
-  build-node:
-    # Build node project
-    executor: node/default
+  build:
+    executor: node-executor
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
       - run:
+          name: Build package
           command: npm run build
-      - run:
-          name: Create the ~/artifacts directory if it doesn't exist
-          command: mkdir -p ~/artifacts
-      # Copy output to artifacts dir
-      - run:
-          name: Copy artifacts
-          command: cp -R build dist public .output .next .docusaurus ~/artifacts 2>/dev/null || true
-      - store_artifacts:
-          path: ~/artifacts
-          destination: node-build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 
   publish:
-    executor: node/default
+    executor: node-executor
     steps:
       - checkout
+      - attach_workspace:
+          at: .
       - run:
-          name: Publish to NPM
-          command: |
-            npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-            npm publish
+          name: Authenticate with NPM
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish --access public
 
 workflows:
-  build:
+  build-and-deploy:
     jobs:
-      - build-node
+      - build
       - publish:
           requires:
-            - build-node
+            - build
+          filters:
+            branches:
+              only: main
