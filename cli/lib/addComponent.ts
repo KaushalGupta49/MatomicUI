@@ -9,7 +9,7 @@ enum fileType {
 }
 
 const BASE_URL =
-  "https://raw.githubusercontent.com/KaushalGupta49/AtomUI/main/templates";
+  "https://raw.githubusercontent.com/KaushalGupta49/MatomicUI/main/templates";
 
 export async function addComponent(name: string, option: fileType) {
   const componentURL = `${BASE_URL}/${option}/${name}.${option === fileType.js ? "jsx" : "tsx"}`;
