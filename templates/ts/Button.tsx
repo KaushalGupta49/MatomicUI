@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
@@ -9,7 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-blue-500 text-white hover:bg-blue-600",
+        primary: "bg-blue-500 text-white hover:bg-blue-600",
+        secondary: "bg-gray-500 text-white hover:bg-gray-600",
+        success: "bg-green-500 text-white hover:bg-green-600",
+        danger: "bg-red-500 text-white hover:bg-red-600",
+        warning: "bg-yellow-500 text-black hover:bg-yellow-600",
+        info: "bg-teal-500 text-white hover:bg-teal-600",
+        light:
+          "bg-white text-gray-800 border border-gray-300 hover:bg-gray-100",
+        dark: "bg-gray-800 text-white hover:bg-gray-900",
+        link: "text-blue-500 hover:text-blue-600 hover:underline",
         outline: "border border-gray-300 text-gray-700 hover:bg-gray-100",
         ghost: "text-gray-700 hover:bg-gray-100",
         destructive: "bg-red-500 text-white hover:bg-red-600",
@@ -21,7 +30,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "primary",
       size: "md",
     },
   }
