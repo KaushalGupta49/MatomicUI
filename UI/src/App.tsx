@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ClampText from "./Clamp";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="p-6">
+      <ClampText minSize={14} maxSize={20}>
+        This text scales from 14px to 20px.
+      </ClampText>
+      <ClampText minSize={16} maxSize={32}>
+        This text scales from 16px to 32px.
+      </ClampText>
+      <ClampText minSize={18} maxSize={40}>
+        This text scales from 18px to 40px.
+      </ClampText>
 
-export default App
+      <ClampText minSize={16} maxSize={32} scale={3}>
+        Faster scaling (3vw).
+      </ClampText>
+      <ClampText minSize={16} maxSize={32} scale={1}>
+        Slower scaling (1vw).
+      </ClampText>
+    </div>
+  );
+}
