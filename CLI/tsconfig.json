@@ -11,6 +11,6 @@
     "skipLibCheck": true,
     "declaration": false
   },
-  "include": ["cli"],
+  "include": ["src/"],
   "exclude": ["node_modules", "dist"]
 }
