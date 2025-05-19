@@ -4,7 +4,7 @@ import { execSync } from "child_process";
 import chalk from "chalk";
 
 export async function installDependencies(
-  items: string[] = ["react", "react-dom", "class-variance-authority"]
+  items: string[] = ["react", "react-dom", "class-variance-authority", "clsx", "tailwind-merge", "@radix-ui"]
 ) {
   const missingDependencies = items.filter(
     (item, index) => !checkDependencies(items)[index]

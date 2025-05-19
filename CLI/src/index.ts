@@ -1,7 +1,7 @@
 import { Command } from "commander";
 import chalk from "chalk";
-import { addComponent } from "./lib/addComponent";
-import { installDependencies } from "./lib/init";
+import { addComponent } from "./commands/addComponent";
+import { installDependencies } from "./commands/init";
 
 const program = new Command();
 
