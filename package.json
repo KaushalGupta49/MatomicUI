@@ -1,5 +1,15 @@
 {
   "scripts": {
     "format": "npx prettier . --write"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,json,css,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0"
   }
 }

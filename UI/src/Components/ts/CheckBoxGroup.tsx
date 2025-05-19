@@ -10,7 +10,7 @@ interface CheckboxGroupProps {
   defaultValues?: string[];
   onChange?: (values: string[]) => void;
   children: ReactNode;
-  className?: string;
+  className?: string
 }
 
 interface CheckboxItemProps {
