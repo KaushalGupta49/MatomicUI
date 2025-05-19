@@ -1,5 +1,5 @@
-"use client";
-import React from "react";
+'use client';
+import React from 'react';
 import {
   createContext,
   useContext,
@@ -11,7 +11,7 @@ import {
   ReactElement,
   cloneElement,
   isValidElement,
-} from "react";
+} from 'react';
 
 type DropdownContextType = {
   isOpen: boolean;
@@ -26,7 +26,7 @@ const DropdownContext = createContext<DropdownContextType | undefined>(
 function useDropdownContext() {
   const context = useContext(DropdownContext);
   if (!context) {
-    throw new Error("Dropdown.* components must be used within <Dropdown />");
+    throw new Error('Dropdown.* components must be used within <Dropdown />');
   }
   return context;
 }
@@ -36,7 +36,7 @@ interface DropdownProps {
   className?: string;
 }
 
-export default function Dropdown({ children, className = "" }: DropdownProps) {
+export default function Dropdown({ children, className = '' }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -53,8 +53,8 @@ export default function Dropdown({ children, className = "" }: DropdownProps) {
         close();
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [close]);
 
   return (
@@ -99,7 +99,7 @@ interface DropdownContentProps {
 
 export const DropdownContent = ({
   children,
-  className = "",
+  className = '',
 }: DropdownContentProps) => {
   const { isOpen } = useDropdownContext();
 

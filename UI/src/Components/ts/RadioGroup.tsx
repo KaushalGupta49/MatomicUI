@@ -1,5 +1,5 @@
-"use client";
-import { useState, createContext, useContext, ReactNode } from "react";
+'use client';
+import { useState, createContext, useContext, ReactNode } from 'react';
 
 type RadioGroupContextType = {
   selected: string;
@@ -28,7 +28,7 @@ const RadioGroupContext = createContext<RadioGroupContextType | undefined>(
 function useRadioGroupContext() {
   const context = useContext(RadioGroupContext);
   if (!context) {
-    throw new Error("RadioGroup components must be used inside <RadioGroup />");
+    throw new Error('RadioGroup components must be used inside <RadioGroup />');
   }
   return context;
 }
@@ -38,9 +38,9 @@ export const RadioGroup = ({
   onChange,
   name,
   children,
-  className = "",
+  className = '',
 }: RadioGroupProps) => {
-  const [selected, setSelectedState] = useState(value || "");
+  const [selected, setSelectedState] = useState(value || '');
 
   const setSelected = (val: string) => {
     setSelectedState(val);
@@ -57,7 +57,7 @@ export const RadioGroup = ({
 export const RadioItem = ({
   value,
   children,
-  className = "",
+  className = '',
 }: RadioItemProps) => {
   const { selected, setSelected, name } = useRadioGroupContext();
   const isChecked = selected === value;
@@ -65,7 +65,7 @@ export const RadioItem = ({
   return (
     <label
       className={`flex items-center gap-2 cursor-pointer p-2 rounded border ${
-        isChecked ? "border-blue-600 bg-blue-50" : "border-gray-300"
+        isChecked ? 'border-blue-600 bg-blue-50' : 'border-gray-300'
       } ${className}`}
     >
       <input

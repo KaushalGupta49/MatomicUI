@@ -1,19 +1,19 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 const cardVariants = cva(
-  "relative w-full rounded-lg border shadow-md p-4 bg-white",
+  'relative w-full rounded-lg border shadow-md p-4 bg-white',
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground",
-        outlined: "border border-gray-300",
-        shadow: "shadow-lg",
+        default: 'bg-background text-foreground',
+        outlined: 'border border-gray-300',
+        shadow: 'shadow-lg',
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: 'default',
     },
   }
 );
@@ -83,6 +83,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
   )
 );
 
-Card.displayName = "Card";
+Card.displayName = 'Card';
 
 export { Card, CardImage, CardTitle, CardSubTitle, CardDescription };

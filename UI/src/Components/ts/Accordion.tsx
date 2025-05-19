@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, {
   createContext,
   useState,
@@ -6,8 +6,8 @@ import React, {
   ReactNode,
   ReactElement,
   useId,
-} from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+} from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 type AccordionContextType = {
   openItems: string[];
@@ -22,7 +22,7 @@ const AccordionContext = createContext<AccordionContextType | undefined>(
 function useAccordionContext() {
   const context = useContext(AccordionContext);
   if (!context)
-    throw new Error("Accordion components must be used within <Accordion />");
+    throw new Error('Accordion components must be used within <Accordion />');
   return context;
 }
 
@@ -37,7 +37,7 @@ export default function Accordion({
   children,
   allowMultiple = false,
   defaultOpenIds = [],
-  className = "",
+  className = '',
 }: AccordionProps) {
   const [openItems, setOpenItems] = useState<string[]>(defaultOpenIds);
 
@@ -73,7 +73,7 @@ export const AccordionItem = ({ children, id }: AccordionItemProps) => {
   return (
     <div className="border-b border-gray-200">
       {React.Children.map(children, (child) =>
-        typeof child === "object" && React.isValidElement(child)
+        typeof child === 'object' && React.isValidElement(child)
           ? React.cloneElement(child as ReactElement<any>, {
               isOpen,
               toggle: () => toggleItem(itemId),

@@ -1,5 +1,5 @@
-"use client";
-import { useState, createContext, useContext, ReactNode } from "react";
+'use client';
+import { useState, createContext, useContext, ReactNode } from 'react';
 
 type CheckboxGroupContextType = {
   selectedValues: string[];
@@ -27,7 +27,7 @@ function useCheckboxGroupContext() {
   const context = useContext(CheckboxGroupContext);
   if (!context) {
     throw new Error(
-      "CheckboxGroup components must be used inside <CheckboxGroup />"
+      'CheckboxGroup components must be used inside <CheckboxGroup />'
     );
   }
   return context;
@@ -37,7 +37,7 @@ export const CheckboxGroup = ({
   defaultValues = [],
   onChange,
   children,
-  className = "",
+  className = '',
 }: CheckboxGroupProps) => {
   const [selectedValues, setSelectedValues] = useState<string[]>(defaultValues);
 
@@ -60,16 +60,17 @@ export const CheckboxGroup = ({
 export const CheckboxItem = ({
   value,
   children,
-  className = "",
+  className = '',
 }: CheckboxItemProps) => {
   const { selectedValues, toggleValue } = useCheckboxGroupContext();
   const isChecked = selectedValues.includes(value);
 
   return (
     <label
-      className={`flex items-center gap-2 cursor-pointer p-2 rounded border ${
-        isChecked ? "border-green-600 bg-green-50" : "border-gray-300"
-      } ${className}`}
+      className={`flex items-center gap-2 cursor-pointer p-2 rounded border 
+        ${
+          isChecked ? 'border-green-600 bg-green-50' : 'border-gray-300'
+        } ${className}`}
     >
       <input
         type="checkbox"

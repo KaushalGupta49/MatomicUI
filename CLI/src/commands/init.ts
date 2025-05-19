@@ -1,10 +1,17 @@
-import * as fs from "fs";
-import * as path from "path";
-import { execSync } from "child_process";
-import chalk from "chalk";
+import * as fs from 'fs';
+import * as path from 'path';
+import { execSync } from 'child_process';
+import chalk from 'chalk';
 
 export async function installDependencies(
-  items: string[] = ["react", "react-dom", "class-variance-authority", "clsx", "tailwind-merge", "@radix-ui"]
+  items: string[] = [
+    'react',
+    'react-dom',
+    'class-variance-authority',
+    'clsx',
+    'tailwind-merge',
+    '@radix-ui',
+  ]
 ) {
   const missingDependencies = items.filter(
     (item, index) => !checkDependencies(items)[index]
@@ -13,21 +20,21 @@ export async function installDependencies(
   if (missingDependencies.length > 0) {
     console.log(
       chalk.yellow(
-        `Installing missing dependencies: ${missingDependencies.join(", ")}`
+        `Installing missing dependencies: ${missingDependencies.join(', ')}`
       )
     );
-    execSync(`npm install ${missingDependencies.join(" ")}`, {
-      stdio: "inherit",
+    execSync(`npm install ${missingDependencies.join(' ')}`, {
+      stdio: 'inherit',
     });
   } else {
-    console.log(chalk.green("All dependencies are already installed."));
+    console.log(chalk.green('All dependencies are already installed.'));
   }
 }
 
 function checkDependencies(items: string[]): boolean[] {
   const __dirname = path.dirname(new URL(import.meta.url).pathname);
-  const packageJsonPath = path.resolve(__dirname, "../package.json");
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf-8"));
+  const packageJsonPath = path.resolve(__dirname, '../package.json');
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
   const dependencies = {
     ...packageJson.dependencies,
     ...packageJson.devDependencies,

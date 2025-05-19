@@ -1,10 +1,10 @@
-"use client";
-import { ReactNode, forwardRef } from "react";
+'use client';
+import { ReactNode, forwardRef } from 'react';
 
 interface ScrollAreaProps {
   children: ReactNode;
   className?: string;
-  orientation?: "vertical" | "horizontal" | "both";
+  orientation?: 'vertical' | 'horizontal' | 'both';
   maxHeight?: string;
   maxWidth?: string;
   scrollBar?: boolean;
@@ -14,18 +14,18 @@ const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
   (
     {
       children,
-      className = "",
-      orientation = "vertical",
-      maxHeight = "300px",
-      maxWidth = "100%",
+      className = '',
+      orientation = 'vertical',
+      maxHeight = '300px',
+      maxWidth = '100%',
       scrollBar = true,
     },
     ref
   ) => {
     const overflowClass = {
-      vertical: "overflow-y-auto overflow-x-hidden",
-      horizontal: "overflow-x-auto overflow-y-hidden",
-      both: "overflow-auto",
+      vertical: 'overflow-y-auto overflow-x-hidden',
+      horizontal: 'overflow-x-auto overflow-y-hidden',
+      both: 'overflow-auto',
     }[orientation];
 
     return (
@@ -34,8 +34,8 @@ const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
         style={{ maxHeight, maxWidth }}
         className={`relative rounded border border-gray-200 ${overflowClass} ${
           scrollBar
-            ? "scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
-            : ""
+            ? 'scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100'
+            : ''
         } ${className}`}
       >
         {children}
@@ -44,6 +44,6 @@ const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
   }
 );
 
-ScrollArea.displayName = "ScrollArea";
+ScrollArea.displayName = 'ScrollArea';
 
 export default ScrollArea;
