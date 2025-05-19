@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "format": "npx prettier . --write"
+    "format": "npx prettier . --write",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,json,css,md}": [
