@@ -1,4 +1,5 @@
 'use client';
+import clsx from 'clsx';
 import {
   createContext,
   useContext,
@@ -9,6 +10,7 @@ import {
   cloneElement,
   isValidElement,
 } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type AvatarContextType = {
   isImageLoaded: boolean;
@@ -35,7 +37,11 @@ export default function Avatar({ children, className = '' }: AvatarProps) {
   return (
     <AvatarContext.Provider value={{ isImageLoaded, setImageLoaded }}>
       <div
-        className={`relative inline-flex items-center justify-center rounded-full bg-gray-200 text-white w-10 h-10 overflow-hidden ${className}`}
+        className={twMerge(
+          clsx(
+            `relative inline-flex items-center justify-center rounded-full bg-gray-200 text-white w-10 h-10 overflow-hidden ${className}`
+          )
+        )}
       >
         {Children.map(children, (child) =>
           isValidElement(child)
@@ -87,7 +93,9 @@ export const AvatarFallbackText = ({
     return null;
   } else {
     return (
-      <span className={`text-sm font-medium ${className}`}>{children}</span>
+      <span className={twMerge(clsx('text-sm font-medium', className))}>
+        {children}
+      </span>
     );
   }
 };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
 
 const cardVariants = cva(
   'relative w-full rounded-lg border shadow-md p-4 bg-white',
@@ -70,7 +71,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ) => (
     <div
       ref={ref}
-      className={cn(cardVariants({ variant }), className)}
+      className={twMerge(clsx(cardVariants({ variant }), className))}
       {...props}
     >
       {imageSrc && <CardImage src={imageSrc} alt={title} />}

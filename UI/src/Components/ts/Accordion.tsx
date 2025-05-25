@@ -8,6 +8,8 @@ import React, {
   useId,
 } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 type AccordionContextType = {
   openItems: string[];
@@ -54,7 +56,7 @@ export default function Accordion({
 
   return (
     <AccordionContext.Provider value={{ openItems, toggleItem, allowMultiple }}>
-      <div className={className}>{children}</div>
+      <div className={twMerge(clsx(className))}>{children}</div>
     </AccordionContext.Provider>
   );
 }

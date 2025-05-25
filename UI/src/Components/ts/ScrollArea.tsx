@@ -1,5 +1,7 @@
 'use client';
+import clsx from 'clsx';
 import { ReactNode, forwardRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface ScrollAreaProps {
   children: ReactNode;
@@ -32,11 +34,16 @@ const ScrollArea = forwardRef<HTMLDivElement, ScrollAreaProps>(
       <div
         ref={ref}
         style={{ maxHeight, maxWidth }}
-        className={`relative rounded border border-gray-200 ${overflowClass} ${
-          scrollBar
-            ? 'scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100'
-            : ''
-        } ${className}`}
+        className={twMerge(
+          clsx(
+            'relative rounded border border-gray-200',
+            overflowClass,
+            scrollBar
+              ? 'scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100'
+              : '',
+            className
+          )
+        )}
       >
         {children}
       </div>

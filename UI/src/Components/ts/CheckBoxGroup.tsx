@@ -1,5 +1,7 @@
 'use client';
+import clsx from 'clsx';
 import { useState, createContext, useContext, ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type CheckboxGroupContextType = {
   selectedValues: string[];
@@ -52,7 +54,9 @@ export const CheckboxGroup = ({
 
   return (
     <CheckboxGroupContext.Provider value={{ selectedValues, toggleValue }}>
-      <div className={`flex flex-col gap-2 ${className}`}>{children}</div>
+      <div className={twMerge(clsx('flex flex-col gap-2', className))}>
+        {children}
+      </div>
     </CheckboxGroupContext.Provider>
   );
 };
@@ -67,10 +71,13 @@ export const CheckboxItem = ({
 
   return (
     <label
-      className={`flex items-center gap-2 cursor-pointer p-2 rounded border 
-        ${
-          isChecked ? 'border-green-600 bg-green-50' : 'border-gray-300'
-        } ${className}`}
+      className={twMerge(
+        clsx(
+          'flex items-center gap-2 cursor-pointer p-2 rounded border',
+          isChecked ? 'border-green-600 bg-green-50' : 'border-gray-300',
+          className
+        )
+      )}
     >
       <input
         type="checkbox"

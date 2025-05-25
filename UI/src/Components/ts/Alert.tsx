@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 const alertVariants = cva(
   'relative w-full rounded-lg border px-4 py-3 text-sm flex items-start gap-3',
@@ -27,7 +28,7 @@ const Alert = React.forwardRef<
   <div
     ref={ref}
     role="alert"
-    className={clsx(alertVariants({ variant }), className)}
+    className={twMerge(clsx(alertVariants({ variant }), className))}
     {...props}
   >
     {children}
@@ -41,7 +42,7 @@ const AlertTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h4
     ref={ref}
-    className={clsx('font-semibold text-base', className)}
+    className={twMerge(clsx('font-semibold text-base', className))}
     {...props}
   />
 ));
@@ -51,7 +52,7 @@ const AlertDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={clsx('text-sm mt-1', className)} {...props} />
+  <p ref={ref} className={twMerge(clsx('text-sm mt-1', className))} {...props} />
 ));
 AlertDescription.displayName = 'AlertDescription';
 
@@ -61,7 +62,7 @@ const AlertIcon = ({
 }: {
   className?: string;
   children: React.ReactNode;
-}) => <div className={clsx('flex-shrink-0', className)}>{children}</div>;
+}) => <div className={twMerge(clsx('flex-shrink-0', className))}>{children}</div>;
 AlertIcon.displayName = 'AlertIcon';
 
 const AlertImage = ({
@@ -72,7 +73,7 @@ const AlertImage = ({
   src: string;
   alt: string;
   className?: string;
-}) => <img src={src} alt={alt} className={clsx('w-10 h-10', className)} />;
+}) => <img src={src} alt={alt} className={twMerge(clsx('w-10 h-10', className))} />;
 AlertImage.displayName = 'AlertImage';
 
 export { Alert, AlertTitle, AlertDescription, AlertIcon, AlertImage };

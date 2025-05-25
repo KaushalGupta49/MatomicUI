@@ -1,5 +1,8 @@
 'use client';
 
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
 interface SeparatorProps {
   orientation?: 'horizontal' | 'vertical';
   className?: string;
@@ -17,15 +20,17 @@ const Separator = ({
 
   const style = isHorizontal
     ? {
-        height: thickness,
         width: length || '100%',
+        height: thickness,
       }
     : {
         width: thickness,
         height: length || '100%',
       };
 
-  return <div className={`${className}`} style={style} role="separator" />;
+  return (
+    <div className={twMerge(clsx(className))} style={style} role="separator" />
+  );
 };
 
 export default Separator;

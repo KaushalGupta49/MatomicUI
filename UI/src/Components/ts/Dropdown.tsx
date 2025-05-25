@@ -1,4 +1,5 @@
 'use client';
+import clsx from 'clsx';
 import React from 'react';
 import {
   createContext,
@@ -12,6 +13,7 @@ import {
   cloneElement,
   isValidElement,
 } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type DropdownContextType = {
   isOpen: boolean;
@@ -59,7 +61,10 @@ export default function Dropdown({ children, className = '' }: DropdownProps) {
 
   return (
     <DropdownContext.Provider value={{ isOpen, toggle, close }}>
-      <div ref={ref} className={`relative inline-block ${className}`}>
+      <div
+        ref={ref}
+        className={twMerge(clsx(`relative inline-block ${className}`))}
+      >
         {React.Children.map(children, (child) =>
           isValidElement(child)
             ? cloneElement(child as ReactElement<any>, {})
@@ -106,6 +111,8 @@ export const DropdownContent = ({
   if (!isOpen) return null;
 
   return (
-    <div className={`flex flex-col bg-white ${className}`}>{children}</div>
+    <div className={twMerge(clsx('flex flex-col bg-white', className))}>
+      {children}
+    </div>
   );
 };

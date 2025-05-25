@@ -1,5 +1,6 @@
 import React, { forwardRef, CSSProperties } from 'react';
 import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 type FlexProps = {
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
@@ -45,7 +46,12 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>(
     };
 
     return (
-      <div ref={ref} className={clsx(className)} style={flexStyles} {...props}>
+      <div
+        ref={ref}
+        className={twMerge(clsx(className))}
+        style={flexStyles}
+        {...props}
+      >
         {children}
       </div>
     );

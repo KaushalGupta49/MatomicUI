@@ -1,5 +1,7 @@
 'use client';
+import clsx from 'clsx';
 import React, { ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface ProgressBarProps {
   className?: string;
@@ -19,7 +21,7 @@ interface ProgressIndicatorProps {
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
   ({ className = '', children }: ProgressBarProps, ref) => {
     return (
-      <div className={`relative ${className}`} ref={ref}>
+      <div className={twMerge(clsx(`relative ${className}`))} ref={ref}>
         {children}
       </div>
     );
@@ -28,7 +30,11 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
 
 export const Progress = ({ progress, className = '' }: ProgressProps) => {
   return (
-    <div className={`w-full bg-gray-200 rounded-full h-4 ${className}`}>
+    <div
+      className={twMerge(
+        clsx(`w-full bg-gray-200 rounded-full h-4 ${className}`)
+      )}
+    >
       <div
         className="bg-blue-600 h-full rounded-full transition-all duration-300"
         style={{ width: `${progress}%` }}
@@ -43,7 +49,11 @@ export const ProgressIndicator = ({
 }: ProgressIndicatorProps) => {
   return (
     <div
-      className={`absolute top-0 left-0 text-black text-sm font-medium flex items-center justify-center w-full h-full ${className}`}
+      className={twMerge(
+        clsx(
+          `absolute top-0 left-0 text-black text-sm font-medium flex items-center justify-center w-full h-full ${className}`
+        )
+      )}
     >
       {progress}%
     </div>

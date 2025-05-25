@@ -1,5 +1,7 @@
 'use client';
+import clsx from 'clsx';
 import { useState, createContext, useContext, ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type RadioGroupContextType = {
   selected: string;
@@ -49,7 +51,9 @@ export const RadioGroup = ({
 
   return (
     <RadioGroupContext.Provider value={{ selected, setSelected, name }}>
-      <div className={`flex flex-col gap-2 ${className}`}>{children}</div>
+      <div className={twMerge(clsx('flex flex-col gap-2', className))}>
+        {children}
+      </div>
     </RadioGroupContext.Provider>
   );
 };
@@ -64,9 +68,13 @@ export const RadioItem = ({
 
   return (
     <label
-      className={`flex items-center gap-2 cursor-pointer p-2 rounded border ${
-        isChecked ? 'border-blue-600 bg-blue-50' : 'border-gray-300'
-      } ${className}`}
+      className={twMerge(
+        clsx(
+          'flex items-center gap-2 cursor-pointer p-2 rounded border',
+          isChecked ? 'border-blue-600 bg-blue-50' : 'border-gray-300',
+          className
+        )
+      )}
     >
       <input
         type="radio"

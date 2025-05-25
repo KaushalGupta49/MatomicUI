@@ -1,5 +1,6 @@
 import React, { forwardRef, CSSProperties } from 'react';
 import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 type GridProps = {
   columns?: number;
@@ -45,7 +46,12 @@ const Grid = forwardRef<HTMLDivElement, GridProps>(
     };
 
     return (
-      <div ref={ref} className={clsx(className)} style={gridStyles} {...props}>
+      <div
+        ref={ref}
+        className={twMerge(clsx(className))}
+        style={gridStyles}
+        {...props}
+      >
         {children}
       </div>
     );
