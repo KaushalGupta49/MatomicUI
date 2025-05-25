@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   createContext,
   useContext,
@@ -8,7 +8,7 @@ import {
   ReactElement,
   cloneElement,
   isValidElement,
-} from "react";
+} from 'react';
 
 type AvatarContextType = {
   isImageLoaded: boolean;
@@ -20,7 +20,7 @@ const AvatarContext = createContext<AvatarContextType | undefined>(undefined);
 function useAvatarContext() {
   const context = useContext(AvatarContext);
   if (!context)
-    throw new Error("Avatar.* components must be used inside <Avatar />");
+    throw new Error('Avatar.* components must be used inside <Avatar />');
   return context;
 }
 
@@ -29,7 +29,7 @@ interface AvatarProps {
   className?: string;
 }
 
-export default function Avatar({ children, className = "" }: AvatarProps) {
+export default function Avatar({ children, className = '' }: AvatarProps) {
   const [isImageLoaded, setImageLoaded] = useState(true);
 
   return (
@@ -49,7 +49,7 @@ export default function Avatar({ children, className = "" }: AvatarProps) {
 
 interface AvatarImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
 
-export const AvatarImage = ({ src, alt = "", ...props }: AvatarImageProps) => {
+export const AvatarImage = ({ src, alt = '', ...props }: AvatarImageProps) => {
   const { setImageLoaded } = useAvatarContext();
 
   const handleError = () => {
@@ -79,7 +79,7 @@ interface AvatarFallbackTextProps {
 
 export const AvatarFallbackText = ({
   children,
-  className = "",
+  className = '',
 }: AvatarFallbackTextProps) => {
   const { isImageLoaded } = useAvatarContext();
 

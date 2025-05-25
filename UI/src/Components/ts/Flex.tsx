@@ -1,11 +1,11 @@
-import React, { forwardRef, CSSProperties } from "react";
-import clsx from "clsx";
+import React, { forwardRef, CSSProperties } from 'react';
+import clsx from 'clsx';
 
 type FlexProps = {
-  direction?: "row" | "row-reverse" | "column" | "column-reverse";
-  align?: "start" | "center" | "end" | "stretch" | "baseline";
-  justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
-  wrap?: "nowrap" | "wrap" | "wrap-reverse";
+  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+  justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+  wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   gap?: number;
   className?: string;
   style?: CSSProperties;
@@ -15,10 +15,10 @@ type FlexProps = {
 const Flex = forwardRef<HTMLDivElement, FlexProps>(
   (
     {
-      direction = "row",
-      align = "stretch",
-      justify = "start",
-      wrap = "nowrap",
+      direction = 'row',
+      align = 'stretch',
+      justify = 'start',
+      wrap = 'nowrap',
       gap = 0,
       className,
       style,
@@ -28,16 +28,16 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>(
     ref
   ) => {
     const flexStyles: CSSProperties = {
-      display: "flex",
+      display: 'flex',
       flexDirection: direction,
       alignItems: align,
       justifyContent: {
-        start: "flex-start",
-        end: "flex-end",
-        between: "space-between",
-        around: "space-around",
-        evenly: "space-evenly",
-        center: "center",
+        start: 'flex-start',
+        end: 'flex-end',
+        between: 'space-between',
+        around: 'space-around',
+        evenly: 'space-evenly',
+        center: 'center',
       }[justify],
       flexWrap: wrap,
       gap: gap ? `${gap}px` : undefined,
@@ -52,6 +52,6 @@ const Flex = forwardRef<HTMLDivElement, FlexProps>(
   }
 );
 
-Flex.displayName = "Flex";
+Flex.displayName = 'Flex';
 
 export default Flex;

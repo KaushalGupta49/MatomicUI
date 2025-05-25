@@ -1,5 +1,5 @@
-"use client";
-import React, { ReactNode } from "react";
+'use client';
+import React, { ReactNode } from 'react';
 
 interface ProgressBarProps {
   className?: string;
@@ -17,7 +17,7 @@ interface ProgressIndicatorProps {
 }
 
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
-  ({ className = "", children }: ProgressBarProps, ref) => {
+  ({ className = '', children }: ProgressBarProps, ref) => {
     return (
       <div className={`relative ${className}`} ref={ref}>
         {children}
@@ -26,7 +26,7 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
   }
 );
 
-export const Progress = ({ progress, className = "" }: ProgressProps) => {
+export const Progress = ({ progress, className = '' }: ProgressProps) => {
   return (
     <div className={`w-full bg-gray-200 rounded-full h-4 ${className}`}>
       <div
@@ -39,7 +39,7 @@ export const Progress = ({ progress, className = "" }: ProgressProps) => {
 
 export const ProgressIndicator = ({
   progress,
-  className = "",
+  className = '',
 }: ProgressIndicatorProps) => {
   return (
     <div
@@ -50,6 +50,6 @@ export const ProgressIndicator = ({
   );
 };
 
-ProgressBar.displayName = "ProgressBar";
-Progress.displayName = "Progress";
-ProgressIndicator.displayName = "ProgressIndicator";
+ProgressBar.displayName = 'ProgressBar';
+Progress.displayName = 'Progress';
+ProgressIndicator.displayName = 'ProgressIndicator';

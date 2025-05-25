@@ -4,7 +4,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./Components/ts/Tooltip";
+} from './Components/ts/Tooltip';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
           <TooltipTrigger>Hover me</TooltipTrigger>
           <TooltipContent side="top">
             This is a tooltip!
-            <TooltipArrow className="fill-white"/>
+            <TooltipArrow className="fill-white" />
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
