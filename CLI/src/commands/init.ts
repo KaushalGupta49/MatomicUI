@@ -9,6 +9,7 @@ export async function installDependencies(
     'clsx',
     'tailwind-merge',
     'radix-ui',
+    'lucide-react',
   ]
 ) {
   const missingDependencies = items.filter(
