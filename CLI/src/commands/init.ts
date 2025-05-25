@@ -8,7 +8,7 @@ export async function installDependencies(
     'class-variance-authority',
     'clsx',
     'tailwind-merge',
-    '@radix-ui',
+    'radix-ui',
   ]
 ) {
   const missingDependencies = items.filter(
