@@ -26,7 +26,7 @@ program
 program
   .command('add <componentName>')
   .description('Add a new React component in Project')
-  .option('--type <type>', 'defines to download jsx or tsx file', 'js')
+  .option('--type <type>', 'defines to download jsx or tsx file', 'ts')
   .action(async (componentName, options) => {
     const validTypes = ['js', 'ts'];
     if (!validTypes.includes(options.type)) {
