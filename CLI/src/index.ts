@@ -7,7 +7,7 @@ const program = new Command();
 
 program
   .name('matomic')
-  .version('1.0.0')
+  .version('1.1.0')
   .description('CLI for adding React components');
 
 program

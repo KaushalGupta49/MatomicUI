@@ -7,9 +7,7 @@ export default function Skeleton({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={twMerge(
-        clsx('animate-pulse bg-white/20 w-4 h-2', className)
-      )}
+      className={twMerge(clsx('animate-pulse bg-white/20 w-4 h-2', className))}
       {...props}
     />
   );

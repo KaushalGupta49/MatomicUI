@@ -52,7 +52,11 @@ const AlertDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={twMerge(clsx('text-sm mt-1', className))} {...props} />
+  <p
+    ref={ref}
+    className={twMerge(clsx('text-sm mt-1', className))}
+    {...props}
+  />
 ));
 AlertDescription.displayName = 'AlertDescription';
 
@@ -62,7 +66,9 @@ const AlertIcon = ({
 }: {
   className?: string;
   children: React.ReactNode;
-}) => <div className={twMerge(clsx('flex-shrink-0', className))}>{children}</div>;
+}) => (
+  <div className={twMerge(clsx('flex-shrink-0', className))}>{children}</div>
+);
 AlertIcon.displayName = 'AlertIcon';
 
 const AlertImage = ({
@@ -73,7 +79,9 @@ const AlertImage = ({
   src: string;
   alt: string;
   className?: string;
-}) => <img src={src} alt={alt} className={twMerge(clsx('w-10 h-10', className))} />;
+}) => (
+  <img src={src} alt={alt} className={twMerge(clsx('w-10 h-10', className))} />
+);
 AlertImage.displayName = 'AlertImage';
 
 export { Alert, AlertTitle, AlertDescription, AlertIcon, AlertImage };
