@@ -5,7 +5,7 @@ type ClampTextProps = {
   minSize: number;
   maxSize: number;
   scale?: number;
-  className: string;
+  className?: string;
   children: React.ReactNode;
 };
 
@@ -14,7 +14,7 @@ const ClampText = ({
   maxSize,
   scale = 2,
   children,
-  className,
+  className = '',
 }: ClampTextProps) => {
   const fontSize = `clamp(${minSize}px, ${scale}vw, ${maxSize}px)`;
 
